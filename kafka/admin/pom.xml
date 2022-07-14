@@ -52,7 +52,6 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <finalName>test-client-kafka-admin</finalName>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>

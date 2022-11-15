@@ -59,7 +59,6 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <finalName>test-client-kafka-producer</finalName>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>

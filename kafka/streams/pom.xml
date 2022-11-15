@@ -59,7 +59,6 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <finalName>test-client-kafka-streams</finalName>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>

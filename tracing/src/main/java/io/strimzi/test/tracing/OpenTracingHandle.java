@@ -51,10 +51,11 @@ public class OpenTracingHandle implements TracingHandle {
         TracingUtil.addProperty(props, ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, TracingProducerInterceptor.class.getName());
     }
 
-    // KafkaStreams is not working with OpenTracing from Kafka 3.0.0
     @Override
     public KafkaStreams getStreamsWithTracing(Topology topology, Properties props) {
-        return null;
+        addTracingPropsToConsumerConfig(props);
+        addTracingPropsToProducerConfig(props);
+        return new KafkaStreams(topology, props);
     }
 
     @Override

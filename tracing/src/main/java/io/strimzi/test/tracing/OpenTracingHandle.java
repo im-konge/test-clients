@@ -16,6 +16,7 @@ import io.opentracing.util.GlobalTracer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.streams.KafkaStreams;
+import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 
 import java.net.http.HttpRequest;
@@ -53,8 +54,8 @@ public class OpenTracingHandle implements TracingHandle {
 
     @Override
     public KafkaStreams getStreamsWithTracing(Topology topology, Properties props) {
-        addTracingPropsToConsumerConfig(props);
-        addTracingPropsToProducerConfig(props);
+        TracingUtil.addProperty(props, StreamsConfig.CONSUMER_PREFIX + ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG, TracingConsumerInterceptor.class.getName());
+        TracingUtil.addProperty(props, StreamsConfig.PRODUCER_PREFIX + ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, TracingProducerInterceptor.class.getName());
         return new KafkaStreams(topology, props);
     }
 

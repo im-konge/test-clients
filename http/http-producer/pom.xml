@@ -56,6 +56,10 @@
             <version>${jackson.version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>okio-jvm</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

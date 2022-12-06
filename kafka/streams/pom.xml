@@ -44,6 +44,10 @@
             <artifactId>kafka-kubernetes-config-provider</artifactId>
             <version>${kafka-kubernetes-config-provider.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>okio-jvm</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
